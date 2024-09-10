@@ -37,8 +37,6 @@ namespace DukeMod.Survivors.Duke.SkillStates
             shotCount = i;
         }
 
-        //To anyone reading this, hi.
-
         public override void OnEnter()
         {
             base.OnEnter();
@@ -47,13 +45,12 @@ namespace DukeMod.Survivors.Duke.SkillStates
             characterBody.SetAimTimer(2f);
             muzzleString = "Muzzle";
 
+            var skillLocator = this.characterBody.GetComponent<SkillLocator>();
 
 
             PlayAnimation("LeftArm, Override", "ShootGun", "ShootGun.playbackRate", 1.8f);
-
-            //ChangeCount(); testing if this thing even worked to begin with
         }
-
+            
         public override void FixedUpdate()
         {
             base.FixedUpdate();
@@ -93,12 +90,12 @@ namespace DukeMod.Survivors.Duke.SkillStates
                     damageMultiplier = 1f;
                 }
                 
-
+                
                 Util.PlaySound(audioString, gameObject);
 
                 //System.Console.WriteLine("The current tracer: ", tracerEffectPrefabString, "current shot count: ", shotCount);
                 //System.Console.WriteLine(tracerEffectPrefabString);
-                System.Console.WriteLine("current shot count" + shotCount);
+                //System.Console.WriteLine("current shot count" + shotCount);
 
                 if (isAuthority)
                 {
@@ -140,11 +137,6 @@ namespace DukeMod.Survivors.Duke.SkillStates
             }
         }
 
-        public void ChangeCount()
-        {
-            ((SteppedSkillDef.InstanceData)skillLocator.primary.skillInstanceData).step = 3;
-            System.Console.WriteLine("changed shot count to: " + shotCount);
-        }
         public override void OnExit()
         {
             base.OnExit();

@@ -4,17 +4,26 @@ using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
 using DukeMod.Survivors.Duke.SkillStates;
+using RoR2.Skills;
 
 namespace DukeMod.Survivors.Duke.SkillStates
 {
-    public class SimpleAmbush : BaseSkillState
+    public class SimpleAmbush : BaseSkillState, SteppedSkillDef.IStepSetter
     {
-        //Stolen from Paladin :]
+        //quickstep stolen from Paladin :]
         protected Vector3 slipVector = Vector3.zero;
         public float duration = 0.30f;
         public float speedCoefficient = 5.5f;
+        public int a;
+
 
         private Vector3 cachedForward;
+
+
+        void SteppedSkillDef.IStepSetter.SetStep(int i)
+        {
+            a = i;
+        }
 
         public override void OnEnter()
         {
@@ -24,12 +33,10 @@ namespace DukeMod.Survivors.Duke.SkillStates
 
             var skillLocator = characterBody.GetComponent<SkillLocator>();
 
-            RoyalGun test = skillLocator.primary.GetComponent<RoyalGun>();
-
-            test.ChangeCount();
-
             PlayAnimation("FullBody, Override", "Roll", "Roll.playbackRate", duration);
             Util.PlaySound(EntityStates.BrotherMonster.BaseSlideState.soundString, base.gameObject);
+
+            ((SteppedSkillDef.InstanceData)characterBody.skillLocator.primary.skillInstanceData).step = 3;
         }
 
 
