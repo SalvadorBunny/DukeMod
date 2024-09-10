@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 622674244
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: henrybundle
+      Dependencies: {}
