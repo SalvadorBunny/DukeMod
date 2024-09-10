@@ -11,7 +11,7 @@ namespace DukeMod.Survivors.Duke.SkillStates
     {
         //Stolen from Paladin :]
         protected Vector3 slipVector = Vector3.zero;
-        public float duration = 0.45f;
+        public float duration = 0.30f;
         public float speedCoefficient = 5.5f;
 
         private Vector3 cachedForward;

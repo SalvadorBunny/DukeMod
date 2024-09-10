@@ -51,7 +51,7 @@ namespace DukeMod.Survivors.Duke.SkillStates
 
             PlayAnimation("LeftArm, Override", "ShootGun", "ShootGun.playbackRate", 1.8f);
 
-            ChangeCount();
+            //ChangeCount(); testing if this thing even worked to begin with
         }
 
         public override void FixedUpdate()
@@ -142,7 +142,7 @@ namespace DukeMod.Survivors.Duke.SkillStates
 
         public void ChangeCount()
         {
-            ((SteppedSkillDef.InstanceData)activatorSkillSlot.skillInstanceData).step = 3;
+            ((SteppedSkillDef.InstanceData)skillLocator.primary.skillInstanceData).step = 3;
             System.Console.WriteLine("changed shot count to: " + shotCount);
         }
         public override void OnExit()
