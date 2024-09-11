@@ -8,22 +8,14 @@ using RoR2.Skills;
 
 namespace DukeMod.Survivors.Duke.SkillStates
 {
-    public class SimpleAmbush : BaseSkillState, SteppedSkillDef.IStepSetter
+    public class SimpleAmbush : BaseSkillState
     {
         //quickstep stolen from Paladin :]
         protected Vector3 slipVector = Vector3.zero;
         public float duration = 0.30f;
         public float speedCoefficient = 5.5f;
-        public int a;
-
 
         private Vector3 cachedForward;
-
-
-        void SteppedSkillDef.IStepSetter.SetStep(int i)
-        {
-            a = i;
-        }
 
         public override void OnEnter()
         {
@@ -36,6 +28,7 @@ namespace DukeMod.Survivors.Duke.SkillStates
             PlayAnimation("FullBody, Override", "Roll", "Roll.playbackRate", duration);
             Util.PlaySound(EntityStates.BrotherMonster.BaseSlideState.soundString, base.gameObject);
 
+            //This here changes the step of the RoyalGun SkillState
             ((SteppedSkillDef.InstanceData)characterBody.skillLocator.primary.skillInstanceData).step = 3;
         }
 

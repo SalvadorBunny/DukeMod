@@ -14,6 +14,7 @@ namespace DukeMod.Survivors.Duke
             Modules.Content.AddEntityState(typeof(SimpleAmbush));
 
             Modules.Content.AddEntityState(typeof(ThrowBomb));
+            Modules.Content.AddEntityState(typeof(KineticReplicator));
         }
     }
 }

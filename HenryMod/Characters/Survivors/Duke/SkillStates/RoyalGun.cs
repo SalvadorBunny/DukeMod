@@ -29,7 +29,6 @@ namespace DukeMod.Survivors.Duke.SkillStates
         private bool hasFired;
         private string muzzleString;
         private string audioString;
-        public GenericSkill activatorSkillSlot { get; set; }
 
 
         void SteppedSkillDef.IStepSetter.SetStep(int i)
